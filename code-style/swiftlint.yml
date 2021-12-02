@@ -82,6 +82,9 @@ identifier_name:
     - z
     - vc
 
+indentation_width:
+  indentation_width: 4
+
 line_length:
   ignores_urls: true
   ignores_comments: true
