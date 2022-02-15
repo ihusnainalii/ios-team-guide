@@ -12,6 +12,9 @@ disabled_rules:
   - unused_setter_value
   - convenience_type
   - strict_fileprivate
+  - cyclomatic_complexity
+  - multiline_function_chains
+  - type_body_length
 
 opt_in_rules:
   - array_init
@@ -33,7 +36,6 @@ opt_in_rules:
   - legacy_random
   - literal_expression_end_indentation
   - multiline_arguments
-  - multiline_function_chains
   - multiline_literal_brackets
   - multiline_parameters
   - multiline_parameters_brackets
@@ -47,16 +49,6 @@ opt_in_rules:
   - unneeded_parentheses_in_closure_argument
   - unused_import
   - yoda_condition
-
-
-custom_rules:
-  array_constructor:
-    name: "Array/Dictionary initializer"
-    regex: '[let,var] .+ = (\[.+\]\(\))'
-    capture_group: 1
-    message: "Use explicit type annotation when initializing empty arrays and dictionaries"
-    severity: warning
-
 
 attributes:
   always_on_same_line:
@@ -105,3 +97,16 @@ type_name:
   excluded:
   - T
   - VC
+
+file_length:
+  warning: 500
+  error: 1000
+  ignore_comment_only_lines: true
+
+nesting:
+  type_level:
+    warning: 3
+    error: 5
+  statement_level:
+    warning: 5
+    error: 6
